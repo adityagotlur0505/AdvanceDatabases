@@ -11,3 +11,8 @@ data = list(data)
 
 print (data)
 
+data = [ {'id': da[0] , 'des': da[1] }  for da in data ]
+
+print (data)
+
+
