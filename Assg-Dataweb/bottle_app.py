@@ -1,6 +1,6 @@
 
 
-from bottle import default_app, route
+from bottle import default_app, route, template
 
 import sqlite3
 
@@ -13,9 +13,9 @@ def hello_world():
 @route('/shopingList')
 def get_list():
     cursor = connection.cursor()
-    data = cursor.execute("select * from  list")
+    data = cursor.execute("select id, description from  list")
     data = list(data)
     data = [ {'id': da[0] , 'des': da[1] }  for da in data ]
-    return "List of shopping items:", str(data)
+    return template("list_items.tpl" , name="aditya Richard" , shopping_List=data)
 
 application = default_app()
