@@ -9,8 +9,13 @@
  <td>
  {{str(items['des'])}}
  </td>
+ <td>
+ <a href="/delete/{{str(items['id'])}}">del..</a>
+ </td>
 </tr>
 % end
 </table>
+<hr>
+<a href="/addFood">New Items..</a>
 </body>
 </html>
