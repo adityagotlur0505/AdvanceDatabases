@@ -10,7 +10,10 @@
  {{str(items['des'])}}
  </td>
  <td>
- <a href="/delete/{{str(items['id'])}}">del..</a>
+ <a href="/delete/{{str(items['id'])}}">del</a>
+ </td>
+ <td>
+ <a href="/edit/{{str(items['id'])}}">edit</a>
  </td>
 </tr>
 % end

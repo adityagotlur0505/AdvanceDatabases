@@ -37,4 +37,23 @@ def get_delete(id):
     connection.commit()
     redirect('/shopingList')
 
+@get("/edit/<id>")
+def get_edit(id):
+    cursor=connection.cursor()
+    items=cursor.execute(f"select description from list where id={id}")
+    items=list(items)
+    if len(items) != 1:
+        redirect('/shopingList')
+    description=items[0][0]
+    return template("edit_shopping.tpl", id=id, description=description)
+    #return f"we want to edit {description} for the item{id}"
+
+@post("/edit/<id>")
+def edit_item(id):
+    description=request.forms.get('description')
+    cursor=connection.cursor()
+    cursor.execute(f"update list set description='{description}' where id={id}")
+    connection.commit()
+    redirect('/shopingList')
+
 application = default_app()
