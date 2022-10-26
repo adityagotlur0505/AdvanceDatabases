@@ -1,6 +1,5 @@
 <html>
 <body>
-<h1>INDIAN FOOD ITEMS</h1>
 <table>
 % for items in shopping_List:
 <tr>
